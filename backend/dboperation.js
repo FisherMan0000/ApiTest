@@ -11,6 +11,8 @@ async function getPetrolData() {
         throw err; // Re-throw the error after logging it
     }
 }
+
+
 module.exports = {
     getPetrolData // Object shorthand notation for exporting the function
 };

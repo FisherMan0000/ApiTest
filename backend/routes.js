@@ -1,7 +1,7 @@
 // routes.js
 const express = require('express');
 const router = express.Router();
-const { getPetrolData, getUsersData } = require('./database'); // Import functions from database.js
+const { getPetrolData, getUsersData} = require('./database'); // Import functions from database.js
 
 // Define the route to get petrol data
 router.get('/api/petrol', async (req, res) => {
@@ -13,6 +13,8 @@ router.get('/api/petrol', async (req, res) => {
     }
 });
 
+
+
 // Define another route to get users data
 router.get('/api/users', async (req, res) => {
     try {
@@ -20,6 +22,16 @@ router.get('/api/users', async (req, res) => {
         res.status(200).json(usersData);
     } catch (err) {
         res.status(500).send('Error fetching users data');
+    }
+});
+
+//testing. noting much!!
+router.get('/api/test', async (req, res) => {
+    try {
+        const petrolData = await gettest();
+        res.status(200).json(petrolData);
+    } catch (err) {
+        res.status(500).send('Error fetching test data');
     }
 });
 
