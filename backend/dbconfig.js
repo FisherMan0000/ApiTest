@@ -5,10 +5,12 @@ const config = {
     server: '127.0.0.1', 
     database: 'book',
     port: 1433,
+    
     options: {
         encrypt: false,
         trustServerCertificate: true,
         enableArithAbort: true
     }
+    
 };
 module.exports = config

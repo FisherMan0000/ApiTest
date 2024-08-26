@@ -10,6 +10,7 @@ async function getPetrolData(req, res) {
         console.error('Error fetching petrol data:', err);
         res.status(500).send('Error fetching petrol data');
     }
+    
 }
 
 module.exports = { getPetrolData };
