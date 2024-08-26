@@ -1,16 +1,18 @@
 const sql = require('mssql');
 const dbconfig = require('./dbconfig');
 
-async function getPetrolData(req, res) {
+const getPetrolData = async (req, res) => {
     try {
-        let pool = await sql.connect(dbconfig);
-        let result = await pool.request().query("SELECT * FROM dbo.Petrol");
-        res.status(200).json(result.recordset);
+      const request = new sql.Request();
+      
+      // SQL query to fetch data from the Petrol table
+      const result = await request.query('SELECT * FROM Petrol');
+      
+      res.json(result.recordset); // Send the fetched data as JSON
     } catch (err) {
-        console.error('Error fetching petrol data:', err);
-        res.status(500).send('Error fetching petrol data');
+      console.error('Database query failed:', err);
+      res.status(500).send('Internal Server Error');
     }
-    
-}
-
-module.exports = { getPetrolData };
+  };
+  
+  module.exports = { getPetrolData };
